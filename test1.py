@@ -9,7 +9,7 @@ headers = {
     )
 }
 
-stock = ["1101", "2330"]
+stock = ["1101", "2330", "1102"]
 
 for i in range(len(stock)):
   stockid = stock[i]
