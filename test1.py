@@ -1,3 +1,4 @@
+import os
 import time
 from bs4 import BeautifulSoup
 import requests
@@ -10,6 +11,10 @@ headers = {
 }
 
 stock = ["1101", "2330", "1102"]
+
+# 從 GitHub Secrets 安全讀取密碼，程式碼裡不留真實資料
+token = os.environ["TELEGRAM_TOKEN"]
+chat_id = os.environ["TELEGRAM_CHAT_ID"]
 
 for i in range(len(stock)):
   stockid = stock[i]
@@ -31,10 +36,6 @@ for i in range(len(stock)):
   price = price_tag.getText() if price_tag else "暫時無法取得"
   message = "股票 " + stockid + " 即時股價為 " + price
 
-  token = "9222565753:AAGLmRjw3iOONi-qqDpjxId5eaoWFAPlrEQ"
-  chat_id = "9232984771"
-
-  # 使用 params 安全傳遞中文訊息並印出 Telegram 回應
   api_url = f"https://api.telegram.org/bot{token}/sendMessage"
   res = requests.get(api_url, params={"chat_id": chat_id, "text": message})
   print(stockid, "Telegram回應:", res.text)
