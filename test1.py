@@ -31,7 +31,7 @@ for i in range(len(stock)):
   price = price_tag.getText() if price_tag else "暫時無法取得"
   message = "股票 " + stockid + " 即時股價為 " + price
 
-  token = "9222565753:AAF6mxqt5kKXPxyjYuxUC0hpd0_Qnu7IBkw"
+  token = "9222565753:AAGLmRjw3iOONi-qqDpjxId5eaoWFAPlrEQ"
   chat_id = "9232984771"
 
   # 使用 params 安全傳遞中文訊息並印出 Telegram 回應
